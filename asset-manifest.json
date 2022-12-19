@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.ce064703.js",
-    "index.html": "/index.html",
-    "main.ce064703.js.map": "/static/js/main.ce064703.js.map"
+    "main.js": "/julebrus_web/static/js/main.ce064703.js",
+    "index.html": "/julebrus_web/index.html",
+    "main.ce064703.js.map": "/julebrus_web/static/js/main.ce064703.js.map"
   },
   "entrypoints": [
     "static/js/main.ce064703.js"
