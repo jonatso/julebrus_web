@@ -1,6 +1,7 @@
 {
   "name": "julebrus_web",
   "version": "0.1.0",
+  "homepage": "https://jonatso.github.io/julebrus_web",
   "private": true,
   "dependencies": {
     "@mantine/core": "^5.9.5",
