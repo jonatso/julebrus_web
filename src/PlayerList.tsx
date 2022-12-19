@@ -1,4 +1,4 @@
-import { List, Title } from "@mantine/core";
+import { Group, List, Table, Title } from "@mantine/core";
 import { Link, useParams } from "react-router-dom";
 import BackButton from "./BackButton";
 import { mockEventList, mockPlayersInEvent } from "./mockData";
@@ -15,17 +15,31 @@ export default function PlayerList() {
 
     return (
         <>
-            <BackButton />
-            <Title order={3}>Players in {eventName}</Title>
-            <List>
-                {players.map((player) => (
-                    <List.Item key={player.id}>
-                        <Link to={`/guess/${eventId}/${player.id}/`}>
-                            {player.name}
-                        </Link>
-                    </List.Item>
-                ))}
-            </List>
+            <Group ml={-10}>
+                <BackButton />
+                <Title order={3}>Players in {eventName}</Title>
+            </Group>
+            <Table maw={300}>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Finished?</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {players.map((player) => (
+                        <tr>
+                            <td>
+                                <Link to={`/guess/${eventId}/${player.id}/`}>
+                                    {player.name}
+                                </Link>
+                            </td>
+                            <td>{player.finished ? "Yes" : "No"}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
         </>
     );
 }

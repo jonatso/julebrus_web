@@ -1,19 +1,52 @@
-import { List, Title } from "@mantine/core";
+import { List, Table, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
 import BackButton from "./BackButton";
-import { mockEventList } from "./mockData";
+import {
+    mockEventList,
+    mockJulebrusInEvent,
+    mockPlayersInEvent,
+} from "./mockData";
 
 export default function EventList() {
     return (
         <>
-            <Title order={3}>List of Julebrus-events</Title>
-            <List>
-                {mockEventList.map((event) => (
-                    <List.Item key={event.id}>
-                        <Link to={`/guess/${event.id}`}>{event.name}</Link>
-                    </List.Item>
-                ))}
-            </List>
+            <Title order={3}>Guess in a Julebrus-event</Title>
+            <Table maw={600}>
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Num. players</th>
+                        <th>Num. julebrus</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {mockEventList.map((event) => (
+                        <tr>
+                            <td>
+                                {event.finished ? (
+                                    event.name
+                                ) : (
+                                    <Link to={`/guess/${event.id}`}>
+                                        {event.name}
+                                    </Link>
+                                )}
+                            </td>
+                            <td>
+                                {mockPlayersInEvent.find(
+                                    (e) => e.id === event.id
+                                )?.players.length || 0}
+                            </td>
+                            <td>
+                                {mockJulebrusInEvent.find(
+                                    (e) => e.id === event.id
+                                )?.julebrus.length || 0}
+                            </td>
+                            <td>{event.id}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
         </>
     );
 }

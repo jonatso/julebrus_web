@@ -1,7 +1,16 @@
-import { Button } from "@mantine/core";
+import { ActionIcon, Button } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function BackButton() {
     const navigate = useNavigate();
-    return <Button onClick={() => navigate(-1)}>Back</Button>;
+    return (
+        <ActionIcon
+            variant="filled"
+            color={"blue"}
+            onClick={() => navigate(-1)}
+        >
+            <FaArrowLeft />
+        </ActionIcon>
+    );
 }

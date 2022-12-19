@@ -52,10 +52,12 @@ export default function Guess() {
 
     return (
         <>
-            <BackButton />
-            <Title order={4}>
-                {playerName} guessing in {eventName}
-            </Title>
+            <Group ml={-10}>
+                <BackButton />
+                <Title order={3}>
+                    {playerName} guessing in {eventName}
+                </Title>
+            </Group>
             <Flex wrap={"wrap"} direction="row" gap={20}>
                 <Table maw={600}>
                     {/*Randomize the order of the julebrus, and make a table. For each julebrus, the player is supposed to be able to choose any of the julebrus from a dropdown which the player think he just tasted*/}

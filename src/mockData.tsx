@@ -129,39 +129,39 @@ export const mockPlayersInEvent = [
     {
         id: "2019",
         players: [
-            { name: "Jonatan", id: "jonatan" },
-            { name: "Baird", id: "baird" },
-            { name: "Andreas", id: "andreas" },
-            { name: "Martin", id: "martin" },
+            { name: "Jonatan", id: "jonatan", finished: true },
+            { name: "Baird", id: "baird", finished: true },
+            { name: "Andreas", id: "andreas", finished: false },
+            { name: "Martin", id: "martin", finished: false },
         ],
     },
     {
         id: "2020",
         players: [
-            { name: "Jonatan", id: "jonatan" },
-            { name: "Lavik", id: "lavik" },
-            { name: "Andreas", id: "andreas" },
-            { name: "Baird", id: "baird" },
+            { name: "Jonatan", id: "jonatan", finished: true },
+            { name: "Lavik", id: "lavik", finished: true },
+            { name: "Andreas", id: "andreas", finished: false },
+            { name: "Baird", id: "baird", finished: true },
         ],
     },
     {
         id: "2021",
         players: [
-            { name: "Jonatan", id: "jonatan" },
-            { name: "Elias", id: "elias" },
-            { name: "Andreas", id: "andreas" },
-            { name: "Baird", id: "baird" },
+            { name: "Jonatan", id: "jonatan", finished: true },
+            { name: "Elias", id: "elias", finished: false },
+            { name: "Andreas", id: "andreas", finished: true },
+            { name: "Baird", id: "baird", finished: false },
         ],
     },
     {
         id: "2022",
         players: [
-            { name: "Jonatan", id: "jonatan" },
-            { name: "Elias", id: "elias" },
-            { name: "Andreas", id: "andreas" },
-            { name: "Baird", id: "baird" },
-            { name: "Lavik", id: "lavik" },
-            { name: "Håvard", id: "håvard" },
+            { name: "Jonatan", id: "jonatan", finished: true },
+            { name: "Elias", id: "elias", finished: false },
+            { name: "Andreas", id: "andreas", finished: false },
+            { name: "Baird", id: "baird", finished: true },
+            { name: "Lavik", id: "lavik", finished: false },
+            { name: "Håvard", id: "håvard", finished: false },
         ],
     },
 ];
@@ -177,8 +177,8 @@ export const mockPlayerNames = [
 ];
 
 export const mockEventList = [
-    { name: "Julebrussmaking 2019", id: "2019" },
-    { name: "Julebrussmaking 2020", id: "2020" },
-    { name: "Julebrussmaking 2021", id: "2021" },
-    { name: "Julebrussmaking 2022", id: "2022" },
+    { name: "Julebrussmaking 2019", id: "2019", finished: true },
+    { name: "Julebrussmaking 2020", id: "2020", finished: true },
+    { name: "Julebrussmaking 2021", id: "2021", finished: false },
+    { name: "Julebrussmaking 2022", id: "2022", finished: false },
 ];
