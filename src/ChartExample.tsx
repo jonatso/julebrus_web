@@ -10,76 +10,14 @@ import {
     Legend,
     ResponsiveContainer,
 } from "recharts";
-
-const data = [
-    {
-        year: "2019",
-        jonatan: {
-            value: 2,
-            percentage: 23,
-        },
-        elias: {
-            value: 4,
-            percentage: 46,
-        },
-        andreas: {
-            value: 3,
-            percentage: 31,
-        },
-    },
-    {
-        year: "2020",
-        jonatan: {
-            value: 3,
-            percentage: 33,
-        },
-        elias: {
-            value: 5,
-            percentage: 55,
-        },
-        andreas: {
-            value: 2,
-            percentage: 22,
-        },
-    },
-    {
-        year: "2021",
-        jonatan: {
-            value: 4,
-            percentage: 36,
-        },
-        elias: {
-            value: 3,
-            percentage: 27,
-        },
-        andreas: {
-            value: 5,
-            percentage: 45,
-        },
-    },
-    {
-        year: "2022",
-        jonatan: {
-            value: 5,
-            percentage: 36,
-        },
-        elias: {
-            value: 4,
-            percentage: 29,
-        },
-        andreas: {
-            value: 3,
-            percentage: 35,
-        },
-    },
-];
+import { mockGuessStatistics } from "./mockData";
 
 export default function ChartExample() {
     const [usePercentage, setUsePercentage] = useState(false);
 
     const valueOrPercentage = usePercentage ? "percentage" : "value";
 
-    const chartData = data.map((year) => ({
+    const chartData = mockGuessStatistics.map((year) => ({
         ...year,
         jonatan: year.jonatan[valueOrPercentage],
         elias: year.elias[valueOrPercentage],
