@@ -1,3 +1,5 @@
+import ChartExample from "./ChartExample";
+
 export default function Statistics() {
-    return <div>Statistics</div>;
+    return <ChartExample />;
 }

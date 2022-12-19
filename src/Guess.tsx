@@ -6,7 +6,6 @@ import {
     Table,
     Text,
     Group,
-    Grid,
     ColorSwatch,
     Flex,
     Box,
