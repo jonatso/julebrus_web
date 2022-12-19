@@ -15,7 +15,7 @@ export default function PlayerList() {
 
     return (
         <>
-            <Group ml={-10}>
+            <Group>
                 <BackButton />
                 <Title order={3}>Players in {eventName}</Title>
             </Group>

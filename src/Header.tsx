@@ -6,6 +6,7 @@ import {
     Text,
     useMantineTheme,
 } from "@mantine/core";
+import ColorSchemeToggler from "./ColorSchemeToggler";
 
 interface Props {
     burgerIsOpened: boolean;
@@ -32,7 +33,9 @@ const Header = ({ burgerIsOpened, burgerToggle }: Props) => {
                     </Group>
                 </Group>
 
-                <Group sx={{ height: "100%" }}>🎅</Group>
+                <Group sx={{ height: "100%" }}>
+                    <ColorSchemeToggler />
+                </Group>
             </Group>
         </MantineHeader>
     );

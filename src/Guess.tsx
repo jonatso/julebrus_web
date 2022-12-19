@@ -52,7 +52,7 @@ export default function Guess() {
 
     return (
         <>
-            <Group ml={-10}>
+            <Group>
                 <BackButton />
                 <Title order={3}>
                     {playerName} guessing in {eventName}
