@@ -10,7 +10,7 @@ import {
     Legend,
     ResponsiveContainer,
 } from "recharts";
-import { mockGuessStatistics } from "./mockData";
+import { mockGuessStatistics } from "../Misc/mockData";
 
 export default function ChartExample() {
     const [usePercentage, setUsePercentage] = useState(false);

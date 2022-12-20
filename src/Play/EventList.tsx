@@ -1,11 +1,10 @@
-import { List, Table, Title } from "@mantine/core";
+import { Table, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
-import BackButton from "./BackButton";
 import {
     mockEventList,
     mockJulebrusInEvent,
     mockPlayersInEvent,
-} from "./mockData";
+} from "../Misc/mockData";
 
 export default function EventList() {
     return (

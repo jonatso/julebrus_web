@@ -1,8 +1,4 @@
-import {
-    ActionIcon,
-    useMantineColorScheme,
-    useMantineTheme,
-} from "@mantine/core";
+import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 export default function ColorSchemeToggler() {

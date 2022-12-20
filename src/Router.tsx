@@ -1,9 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Shell from "./Shell";
-import Guess from "./Guess";
-import Statistics from "./Statistics";
-import EventList from "./EventList";
-import PlayerList from "./PlayerList";
+import Shell from "./Shell/Shell";
+import Guess from "./Play/Guess";
+import Statistics from "./Statistics/Statistics";
+import EventList from "./Play/EventList";
+import PlayerList from "./Play/PlayerList";
+import ManageJulebrus from "./Manage/ManageJulebrus";
+import ManagePlayers from "./Manage/ManagePlayers";
+import ManageEvents from "./Manage/ManageEvents";
 
 export default function Router() {
     return (
@@ -18,7 +21,16 @@ export default function Router() {
                         element={<Guess />}
                     />
                     <Route path="/statistics" element={<Statistics />} />
-                    <Route path="*" element={<Navigate to="/guess" />} />
+                    <Route
+                        path="/manage"
+                        element={<Navigate to={"/manage/events"} />}
+                    />
+                    <Route
+                        path="manage/julebrus"
+                        element={<ManageJulebrus />}
+                    />
+                    <Route path="manage/players" element={<ManagePlayers />} />
+                    <Route path="manage/events" element={<ManageEvents />} />
                 </Route>
             </Routes>
         </BrowserRouter>

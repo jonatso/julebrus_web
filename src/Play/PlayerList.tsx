@@ -1,7 +1,7 @@
-import { Group, List, Table, Title } from "@mantine/core";
+import { Group, Table, Title } from "@mantine/core";
 import { Link, useParams } from "react-router-dom";
-import BackButton from "./BackButton";
-import { mockEventList, mockPlayersInEvent } from "./mockData";
+import BackButton from "../Misc/BackButton";
+import { mockEventList, mockPlayersInEvent } from "../Misc/mockData";
 
 export default function PlayerList() {
     const { eventId } = useParams<{

@@ -13,13 +13,13 @@ import {
 } from "@mantine/core";
 import { forwardRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import BackButton from "./BackButton";
+import BackButton from "../Misc/BackButton";
 import {
     mockEventList,
     mockJulebrusInEvent,
     mockJulebrusList,
     mockPlayerNames,
-} from "./mockData";
+} from "../Misc/mockData";
 
 // make a component for guessing blind guessing the julebrus, with a mantine form
 

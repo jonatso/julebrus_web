@@ -6,7 +6,7 @@ import {
     Text,
     useMantineTheme,
 } from "@mantine/core";
-import ColorSchemeToggler from "./ColorSchemeToggler";
+import ColorSchemeToggler from "../Misc/ColorSchemeToggler";
 
 interface Props {
     burgerIsOpened: boolean;
