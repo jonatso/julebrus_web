@@ -1,17 +1,29 @@
-import { ActionIcon, useMantineColorScheme } from "@mantine/core";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { useMantineColorScheme, ActionIcon, Group } from "@mantine/core";
+import { IconSun, IconMoonStars } from "@tabler/icons";
 
-export default function ColorSchemeToggler() {
+export default function ActionToggle() {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+
     return (
         <ActionIcon
-            variant="subtle"
-            color={colorScheme === "dark" ? "yellow" : "gray"}
-            onClick={() =>
-                toggleColorScheme(colorScheme === "dark" ? "light" : "dark")
-            }
+            onClick={() => toggleColorScheme()}
+            size="lg"
+            sx={(theme) => ({
+                backgroundColor:
+                    theme.colorScheme === "dark"
+                        ? theme.colors.dark[6]
+                        : theme.colors.gray[0],
+                color:
+                    theme.colorScheme === "dark"
+                        ? theme.colors.yellow[4]
+                        : theme.colors.blue[6],
+            })}
         >
-            {colorScheme === "dark" ? <FaSun /> : <FaMoon />}
+            {colorScheme === "dark" ? (
+                <IconSun size={18} />
+            ) : (
+                <IconMoonStars size={18} />
+            )}
         </ActionIcon>
     );
 }
