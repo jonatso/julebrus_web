@@ -75,6 +75,7 @@ export default function Guess() {
                                 <td>{julebrus.name}</td>
                                 <td>
                                     <Select
+                                        size="xs"
                                         data={mockJulebrusList.map(
                                             (julebrus) => ({
                                                 value: julebrus.name,
@@ -97,6 +98,7 @@ export default function Guess() {
                                 </td>
                                 <td>
                                     <NumberInput
+                                        size="xs"
                                         placeholder="1 - 10"
                                         max={10}
                                         min={1}

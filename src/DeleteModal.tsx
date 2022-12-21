@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, Button, Group, Text } from "@mantine/core";
+import { Modal, Button, Group, Text, ActionIcon } from "@mantine/core";
 import { FaTrash } from "react-icons/fa";
 
 export default function DeleteModal({
@@ -40,13 +40,13 @@ export default function DeleteModal({
             </Modal>
 
             {/* <Button onClick={() => setOpened(true)}>Open Modal</Button> */}
-            <Button
+            <ActionIcon
                 onClick={() => setOpened(true)}
-                leftIcon={<FaTrash />}
                 color="red"
+                variant="subtle"
             >
-                Delete
-            </Button>
+                <FaTrash />
+            </ActionIcon>
         </>
     );
 }
