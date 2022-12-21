@@ -1,4 +1,4 @@
-import { useMantineColorScheme, ActionIcon, Group } from "@mantine/core";
+import { useMantineColorScheme, ActionIcon } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons";
 
 export default function ActionToggle() {

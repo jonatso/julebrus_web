@@ -31,6 +31,7 @@ export default function Router() {
                     />
                     <Route path="manage/players" element={<ManagePlayers />} />
                     <Route path="manage/events" element={<ManageEvents />} />
+                    <Route path="*" element={<Navigate to="/guess" />} />
                 </Route>
             </Routes>
         </BrowserRouter>
