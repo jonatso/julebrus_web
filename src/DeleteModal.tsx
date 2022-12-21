@@ -24,7 +24,9 @@ export default function DeleteModal({
                     Are you sure you want to delete <i>{deleteName}?</i>
                 </Text>
                 <Group position="right" mt={"xl"}>
-                    <Button onClick={() => setOpened(false)}>Cancel</Button>
+                    <Button onClick={() => setOpened(false)} variant="outline">
+                        Cancel
+                    </Button>
                     <Button
                         color="red"
                         onClick={() => {
