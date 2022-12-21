@@ -1,4 +1,5 @@
-import { Table, Title } from "@mantine/core";
+import { Button, Group, Table, Title } from "@mantine/core";
+import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import {
     mockEventList,
@@ -9,7 +10,17 @@ import {
 export default function EventList() {
     return (
         <>
-            <Title order={3}>Guess in a Julebrus-event</Title>
+            <Group>
+                <Title order={3}>Play in a Julebrus-event</Title>
+                <Button
+                    component={Link}
+                    leftIcon={<FaPlus />}
+                    color={"green"}
+                    to="/play/new"
+                >
+                    Create new
+                </Button>
+            </Group>
             <Table maw={600}>
                 <thead>
                     <tr>
@@ -26,7 +37,7 @@ export default function EventList() {
                                 {event.finished ? (
                                     event.name
                                 ) : (
-                                    <Link to={`/guess/${event.id}`}>
+                                    <Link to={`/play/${event.id}`}>
                                         {event.name}
                                     </Link>
                                 )}

@@ -167,13 +167,14 @@ export const mockPlayersInEvent = [
 ];
 
 export const mockPlayerNames = [
-    { id: "jonatan", name: "Jonatan" },
-    { id: "elias", name: "Elias" },
-    { id: "andreas", name: "Andreas" },
-    { id: "baird", name: "Baird" },
-    { id: "lavik", name: "Lavik" },
-    { id: "håvard", name: "Håvard" },
-    { id: "martin", name: "Martin" },
+    { id: "jonatan", name: "Jonatan", participatedBefore: true },
+    { id: "elias", name: "Elias", participatedBefore: false },
+    { id: "andreas", name: "Andreas", participatedBefore: true },
+    { id: "baird", name: "Baird", participatedBefore: true },
+    { id: "lavik", name: "Lavik", participatedBefore: true },
+    { id: "håvard", name: "Håvard", participatedBefore: false },
+    { id: "martin", name: "Martin", participatedBefore: false },
+    { id: "magnus", name: "Magnus", participatedBefore: true },
 ];
 
 export const mockEventList = [

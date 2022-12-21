@@ -1,5 +1,6 @@
 import { Button, ColorSwatch, Group, Table, Title } from "@mantine/core";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import DeleteModal from "../DeleteModal";
 import BackButton from "../Misc/BackButton";
 import { mockJulebrusList } from "../Misc/mockData";
 
@@ -28,20 +29,16 @@ export default function ManageJulebrus() {
                             </td>
                             <td>
                                 <Group>
-                                    <Button
-                                        leftIcon={<FaEdit />}
-                                        color="green"
-                                        size="xs"
-                                    >
+                                    <Button leftIcon={<FaEdit />} color="green">
                                         Edit
                                     </Button>
-                                    <Button
-                                        leftIcon={<FaTrash />}
-                                        color="red"
-                                        size="xs"
-                                    >
+                                    {/* <Button leftIcon={<FaTrash />} color="red">
                                         Delete
-                                    </Button>
+                                    </Button> */}
+                                    <DeleteModal
+                                        deleteName={julebrus.name}
+                                        onDelete={() => {}}
+                                    />
                                 </Group>
                             </td>
                         </tr>

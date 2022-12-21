@@ -8,7 +8,7 @@ import NavbarLink from "./NavbarLink";
 import NavbarLinksGroup from "./NavbarLinksGroup";
 
 const mockdata = [
-    { label: "Play", icon: IconDeviceGamepad, link: "/guess" },
+    { label: "Play", icon: IconDeviceGamepad, link: "/play" },
     {
         label: "Statistics",
         icon: IconPresentationAnalytics,

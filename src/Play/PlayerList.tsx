@@ -31,7 +31,7 @@ export default function PlayerList() {
                     {players.map((player) => (
                         <tr>
                             <td>
-                                <Link to={`/guess/${eventId}/${player.id}/`}>
+                                <Link to={`/play/${eventId}/${player.id}/`}>
                                     {player.name}
                                 </Link>
                             </td>

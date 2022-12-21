@@ -7,19 +7,21 @@ import PlayerList from "./Play/PlayerList";
 import ManageJulebrus from "./Manage/ManageJulebrus";
 import ManagePlayers from "./Manage/ManagePlayers";
 import ManageEvents from "./Manage/ManageEvents";
+import NewEvent from "./Play/NewEvent";
 
 export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route element={<Shell />}>
-                    <Route path="/" element={<Navigate to="/guess" />} />
-                    <Route path="/guess" element={<EventList />} />
-                    <Route path="/guess/:eventId" element={<PlayerList />} />
+                    <Route path="/" element={<Navigate to="/play" />} />
+                    <Route path="/play" element={<EventList />} />
+                    <Route path="/play/:eventId" element={<PlayerList />} />
                     <Route
-                        path="/guess/:eventId/:personId"
+                        path="/play/:eventId/:personId"
                         element={<Guess />}
                     />
+                    <Route path="/play/new" element={<NewEvent />} />
                     <Route path="/statistics" element={<Statistics />} />
                     <Route
                         path="/manage"
@@ -31,7 +33,7 @@ export default function Router() {
                     />
                     <Route path="manage/players" element={<ManagePlayers />} />
                     <Route path="manage/events" element={<ManageEvents />} />
-                    <Route path="*" element={<Navigate to="/guess" />} />
+                    <Route path="*" element={<Navigate to="/play" />} />
                 </Route>
             </Routes>
         </BrowserRouter>
