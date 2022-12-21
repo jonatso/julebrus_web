@@ -78,13 +78,11 @@ export default function Guess() {
                                 <td>
                                     <Select
                                         size="sm"
-                                        data={mockJulebrusList.map(
-                                            (julebrus) => ({
-                                                value: julebrus.name,
-                                                label: julebrus.name,
-                                                group: julebrus.color,
-                                            })
-                                        )}
+                                        data={julebrusList.map((julebrus) => ({
+                                            value: julebrus.name,
+                                            label: julebrus.name,
+                                            group: julebrus.color,
+                                        }))}
                                         searchable
                                         itemComponent={SelectItem}
                                         onChange={(value) => {
@@ -142,7 +140,7 @@ export default function Guess() {
                     </Flex>
                     <Text mt={10}>Not guessed:</Text>
                     <List>
-                        {mockJulebrusList
+                        {julebrusList
                             .filter(
                                 (julebrus) =>
                                     !selections.includes(julebrus.name)
@@ -155,7 +153,7 @@ export default function Guess() {
                     </List>
                     <Text>Guessed:</Text>
                     <List>
-                        {mockJulebrusList
+                        {julebrusList
                             .filter((julebrus) =>
                                 selections.includes(julebrus.name)
                             )
