@@ -12,6 +12,7 @@ import {
     Title,
 } from "@mantine/core";
 import { forwardRef, useState } from "react";
+import { FaWineBottle } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import BackButton from "../Misc/BackButton";
 import {
@@ -20,6 +21,7 @@ import {
     mockJulebrusList,
     mockPlayerNames,
 } from "../Misc/mockData";
+import ProgressCircleCard from "./ProgressCircleCard";
 
 // make a component for guessing blind guessing the julebrus, with a mantine form
 
@@ -50,6 +52,8 @@ export default function Guess() {
 
     const eventName = mockEventList.find((e) => e.id === eventId)?.name;
 
+    console.log(julebrusList);
+
     return (
         <>
             <Group mb={10}>
@@ -59,19 +63,17 @@ export default function Guess() {
                 </Title>
             </Group>
             <Flex wrap={"wrap"} direction="row" gap={20}>
-                <Table maw={600}>
-                    {/*Randomize the order of the julebrus, and make a table. For each julebrus, the player is supposed to be able to choose any of the julebrus from a dropdown which the player think he just tasted*/}
+                <Table maw={600} style={{ height: "fit-content" }}>
                     <thead>
                         <tr>
                             <th>Julebrus</th>
                             <th>Guess</th>
                             <th>Rating</th>{" "}
-                            {/*The player should be able to rate the julebrus from 1 to 10*/}
                         </tr>
                     </thead>
                     <tbody>
-                        {mockJulebrusList.map((julebrus, idx) => (
-                            <tr>
+                        {julebrusList.map((julebrus, idx) => (
+                            <tr key={julebrus.id}>
                                 <td>{julebrus.name}</td>
                                 <td>
                                     <Select
@@ -119,7 +121,17 @@ export default function Guess() {
                 </Table>
 
                 <Box>
-                    <Text>Not guessed:</Text>
+                    <ProgressCircleCard
+                        label="Julebrus finished"
+                        color="blue"
+                        done={
+                            selections.filter((s, idx) => s && ratings[idx])
+                                .length
+                        }
+                        total={julebrusList.length}
+                        icon={<FaWineBottle />}
+                    />
+                    <Text mt={10}>Not guessed:</Text>
                     <List>
                         {mockJulebrusList
                             .filter(
@@ -127,7 +139,9 @@ export default function Guess() {
                                     !selections.includes(julebrus.name)
                             )
                             .map((julebrus) => (
-                                <List.Item>{julebrus.name}</List.Item>
+                                <List.Item key={julebrus.id}>
+                                    {julebrus.name}
+                                </List.Item>
                             ))}
                     </List>
                     <Text>Guessed:</Text>
@@ -138,7 +152,7 @@ export default function Guess() {
                             )
                             .map((julebrus) => (
                                 //count the number of times the julebrus is guessed
-                                <List.Item>
+                                <List.Item key={julebrus.id}>
                                     {julebrus.name} x
                                     {
                                         selections.filter(

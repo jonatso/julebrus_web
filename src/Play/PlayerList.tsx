@@ -1,7 +1,9 @@
-import { Avatar, Group, Table, Title } from "@mantine/core";
+import { Avatar, Flex, Group, Table, Title } from "@mantine/core";
+import { FaUsers } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import BackButton from "../Misc/BackButton";
 import { mockEventList, mockPlayersInEvent } from "../Misc/mockData";
+import ProgressCircleCard from "./ProgressCircleCard";
 
 export default function PlayerList() {
     const { eventId } = useParams<{
@@ -19,34 +21,45 @@ export default function PlayerList() {
                 <BackButton />
                 <Title order={3}>Players in {eventName}</Title>
             </Group>
-            <Table maw={300}>
-                <thead>
-                    <tr>
-                        <th>Player</th>
-                        <th>Finished?</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {players.map((player) => (
+            <Flex wrap={"wrap"} direction="row" gap={20}>
+                <Table maw={300}>
+                    <thead>
                         <tr>
-                            <td>
-                                <Group spacing="sm">
-                                    <Avatar
-                                        size={26}
-                                        src={`https://avatars.dicebear.com/api/pixel-art/${player.id}.svg`}
-                                        radius={26}
-                                    />
-                                    <Link to={`/play/${eventId}/${player.id}/`}>
-                                        {player.name}
-                                    </Link>
-                                </Group>
-                            </td>
-                            <td>{player.finished ? "Yes" : "No"}</td>
+                            <th>Player</th>
+                            <th>Finished?</th>
                         </tr>
-                    ))}
-                </tbody>
-            </Table>
+                    </thead>
+
+                    <tbody>
+                        {players.map((player) => (
+                            <tr key={player.id}>
+                                <td>
+                                    <Group spacing="sm">
+                                        <Avatar
+                                            size={26}
+                                            src={`https://avatars.dicebear.com/api/pixel-art/${player.id}.svg`}
+                                            radius={26}
+                                        />
+                                        <Link
+                                            to={`/play/${eventId}/${player.id}/`}
+                                        >
+                                            {player.name}
+                                        </Link>
+                                    </Group>
+                                </td>
+                                <td>{player.finished ? "Yes" : "No"}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+                <ProgressCircleCard
+                    label="Players finished"
+                    total={players.length}
+                    done={players.filter((p) => p.finished).length}
+                    color={"green"}
+                    icon={<FaUsers />}
+                />
+            </Flex>
         </>
     );
 }

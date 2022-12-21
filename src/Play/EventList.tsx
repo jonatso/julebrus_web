@@ -18,7 +18,7 @@ export default function EventList() {
                     color={"green"}
                     to="/play/new"
                 >
-                    Create new
+                    New
                 </Button>
             </Group>
             <Table maw={600}>
@@ -32,7 +32,7 @@ export default function EventList() {
                 </thead>
                 <tbody>
                     {mockEventList.map((event) => (
-                        <tr>
+                        <tr key={event.id}>
                             <td>
                                 {event.finished ? (
                                     event.name
