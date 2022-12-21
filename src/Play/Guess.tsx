@@ -12,7 +12,7 @@ import {
     Title,
 } from "@mantine/core";
 import { forwardRef, useState } from "react";
-import { FaWineBottle } from "react-icons/fa";
+import { FaCalculator, FaWineBottle } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import BackButton from "../Misc/BackButton";
 import {
@@ -77,7 +77,7 @@ export default function Guess() {
                                 <td>{julebrus.name}</td>
                                 <td>
                                     <Select
-                                        size="xs"
+                                        size="sm"
                                         data={mockJulebrusList.map(
                                             (julebrus) => ({
                                                 value: julebrus.name,
@@ -121,16 +121,25 @@ export default function Guess() {
                 </Table>
 
                 <Box>
-                    <ProgressCircleCard
-                        label="Julebrus finished"
-                        color="blue"
-                        done={
-                            selections.filter((s, idx) => s && ratings[idx])
-                                .length
-                        }
-                        total={julebrusList.length}
-                        icon={<FaWineBottle />}
-                    />
+                    <Flex gap="md" direction="column" wrap="wrap">
+                        <ProgressCircleCard
+                            label="Julebrus finished"
+                            color="green"
+                            done={
+                                selections.filter((s, idx) => s && ratings[idx])
+                                    .length
+                            }
+                            total={julebrusList.length}
+                            icon={<FaWineBottle />}
+                        />
+                        <ProgressCircleCard
+                            label="Average rating"
+                            color="blue"
+                            done={Math.floor(averageRating * 100) / 100}
+                            total={10}
+                            icon={<FaCalculator />}
+                        />
+                    </Flex>
                     <Text mt={10}>Not guessed:</Text>
                     <List>
                         {mockJulebrusList
@@ -163,12 +172,6 @@ export default function Guess() {
                                 </List.Item>
                             ))}
                     </List>
-                    <Text>
-                        Average rating:{" "}
-                        {/* show average rating for the julebrus which have been rated */}
-                        {averageRating.toFixed(2)}
-                    </Text>
-
                     <Button
                         onClick={() => {
                             setSelections(mockJulebrusList.map(() => null));

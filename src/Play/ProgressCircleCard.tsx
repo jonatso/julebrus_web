@@ -16,7 +16,13 @@ export default function ProgressCircleCard({
     icon,
 }: StatsRingProps) {
     return (
-        <Paper withBorder radius="md" p="xs" style={{ height: "fit-content" }}>
+        <Paper
+            withBorder
+            radius="md"
+            p="xs"
+            style={{ height: "fit-content" }}
+            w={250}
+        >
             <Group>
                 <RingProgress
                     size={80}
