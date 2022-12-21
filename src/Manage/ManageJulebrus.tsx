@@ -1,6 +1,6 @@
 import { ActionIcon, ColorSwatch, Group, Table, Title } from "@mantine/core";
 import { FaEdit } from "react-icons/fa";
-import DeleteModal from "../DeleteModal";
+import DeleteModal from "../Misc/DeleteModal";
 import { mockJulebrusList } from "../Misc/mockData";
 
 export default function ManageJulebrus() {

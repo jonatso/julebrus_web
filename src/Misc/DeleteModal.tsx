@@ -19,7 +19,6 @@ export default function DeleteModal({
                 title={`Delete ${deleteName}`}
                 centered
             >
-                {/* Modal content */}
                 <Text>
                     Are you sure you want to delete <i>{deleteName}?</i>
                 </Text>

@@ -1,6 +1,5 @@
 import {
     Button,
-    List,
     NumberInput,
     Select,
     Table,
@@ -12,8 +11,9 @@ import {
     Title,
 } from "@mantine/core";
 import { forwardRef, useState } from "react";
-import { FaCalculator, FaWineBottle } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { FaCalculator, FaCheck, FaUndo, FaWineBottle } from "react-icons/fa";
+import { useNavigate, useParams } from "react-router-dom";
+import ActionModal from "../Misc/ActionModal";
 import BackButton from "../Misc/BackButton";
 import {
     mockEventList,
@@ -21,11 +21,14 @@ import {
     mockJulebrusList,
     mockPlayerNames,
 } from "../Misc/mockData";
+import PaperCard from "./PaperCard";
 import ProgressCircleCard from "./ProgressCircleCard";
 
 // make a component for guessing blind guessing the julebrus, with a mantine form
 
 export default function Guess() {
+    const navigate = useNavigate();
+
     const { eventId, personId } = useParams<{
         eventId: string;
         personId: string;
@@ -119,7 +122,7 @@ export default function Guess() {
                 </Table>
 
                 <Box>
-                    <Flex gap="md" direction="column" wrap="wrap">
+                    <Flex gap="sm" direction="column" wrap="wrap">
                         <ProgressCircleCard
                             label="Julebrus finished"
                             color="green"
@@ -137,47 +140,67 @@ export default function Guess() {
                             total={10}
                             icon={<FaCalculator />}
                         />
+                        <PaperCard
+                            title={"Guessed"}
+                            description={
+                                julebrusList
+                                    .filter((julebrus) =>
+                                        selections.includes(julebrus.name)
+                                    )
+                                    .map((julebrus) => julebrus.name)
+                                    .join(", ") || "None yet!"
+                            }
+                        />
+                        <PaperCard
+                            title={"Not guessed"}
+                            description={
+                                julebrusList
+                                    .filter(
+                                        (julebrus) =>
+                                            !selections.includes(julebrus.name)
+                                    )
+                                    .map((julebrus) => julebrus.name)
+                                    .join(", ") || "You've guessed all!"
+                            }
+                        />
+                        <Group>
+                            {/* <Button
+                                onClick={() => {
+                                    setSelections(
+                                        mockJulebrusList.map(() => null)
+                                    );
+                                    setRatings(
+                                        mockJulebrusList.map(() => undefined)
+                                    );
+                                }}
+                                color={"red"}
+                                leftIcon={<FaUndo />}
+                            >
+                                Reset
+                            </Button> */}
+                            <ActionModal
+                                title="Reset guesses and ratings"
+                                description={`Are you sure you want to reset all of ${playerName}'s guesses and ratings?`}
+                                leftIcon={<FaUndo />}
+                                actionName="Reset"
+                                onAction={() => {
+                                    setSelections(
+                                        mockJulebrusList.map(() => null)
+                                    );
+                                    setRatings(
+                                        mockJulebrusList.map(() => undefined)
+                                    );
+                                }}
+                            />
+                            <Button
+                                onClick={() => navigate(-1)}
+                                color={"green"}
+                                leftIcon={<FaCheck />}
+                            >
+                                Submit!
+                            </Button>
+                        </Group>
                     </Flex>
-                    <Text mt={10}>Not guessed:</Text>
-                    <List>
-                        {julebrusList
-                            .filter(
-                                (julebrus) =>
-                                    !selections.includes(julebrus.name)
-                            )
-                            .map((julebrus) => (
-                                <List.Item key={julebrus.id}>
-                                    {julebrus.name}
-                                </List.Item>
-                            ))}
-                    </List>
-                    <Text>Guessed:</Text>
-                    <List>
-                        {julebrusList
-                            .filter((julebrus) =>
-                                selections.includes(julebrus.name)
-                            )
-                            .map((julebrus) => (
-                                //count the number of times the julebrus is guessed
-                                <List.Item key={julebrus.id}>
-                                    {julebrus.name} x
-                                    {
-                                        selections.filter(
-                                            (selection) =>
-                                                selection === julebrus.name
-                                        ).length
-                                    }
-                                </List.Item>
-                            ))}
-                    </List>
-                    <Button
-                        onClick={() => {
-                            setSelections(mockJulebrusList.map(() => null));
-                            setRatings(mockJulebrusList.map(() => undefined));
-                        }}
-                    >
-                        Reset
-                    </Button>
                 </Box>
             </Flex>
         </>
