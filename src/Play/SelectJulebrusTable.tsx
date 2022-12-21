@@ -53,6 +53,7 @@ export default function SelectJulebrusTable({
                         checked={selection.includes(item.id)}
                         onChange={() => toggleRow(item.id)}
                         transitionDuration={0}
+                        mb={-5}
                     />
                 </td>
                 <td>
@@ -87,6 +88,7 @@ export default function SelectJulebrusTable({
                                     selection.length !== julebrusList.length
                                 }
                                 transitionDuration={0}
+                                mb={-5}
                             />
                         </th>
                         <th>Julebrus</th>
