@@ -10,7 +10,7 @@ import {
 export default function EventList() {
     return (
         <>
-            <Group>
+            <Group mb={10}>
                 <Title order={3}>Play in a Julebrus-event</Title>
                 <Button
                     component={Link}

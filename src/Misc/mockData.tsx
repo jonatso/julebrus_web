@@ -1,14 +1,14 @@
 export const mockJulebrusList = [
-    { name: "Hansa", color: "red" },
-    { name: "Grans", color: "red" },
-    { name: "Hamar", color: "brown" },
-    { name: "CB", color: "brown" },
-    { name: "Kiwi", color: "red" },
-    { name: "Mack", color: "red" },
-    { name: "Saft suse", color: "red" },
-    { name: "Arendal", color: "brown" },
-    { name: "Sørlands", color: "brown" },
-    { name: "Lerum", color: "red" },
+    { id: "hansa", name: "Hansa", color: "red" },
+    { id: "grans", name: "Grans", color: "red" },
+    { id: "hamar", name: "Hamar", color: "brown" },
+    { id: "cb", name: "CB", color: "brown" },
+    { id: "kiwi", name: "Kiwi", color: "red" },
+    { id: "mack", name: "Mack", color: "red" },
+    { id: "saft_suse", name: "Saft suse", color: "red" },
+    { id: "arendal", name: "Arendal", color: "brown" },
+    { id: "sorlands", name: "Sørlands", color: "brown" },
+    { id: "lerum", name: "Lerum", color: "red" },
 ];
 
 export const mockJulebrusInEvent = [

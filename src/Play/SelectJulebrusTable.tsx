@@ -4,9 +4,8 @@ import {
     Table,
     Checkbox,
     ScrollArea,
-    Group,
-    Avatar,
     Text,
+    ColorSwatch,
 } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -18,13 +17,13 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-export default function SelectPlayersTable({
-    playerList,
+export default function SelectJulebrusTable({
+    julebrusList,
 }: {
-    playerList: {
+    julebrusList: {
         name: string;
         id: string;
-        participatedBefore: boolean;
+        color: string;
     }[];
 }) {
     const { classes, cx } = useStyles();
@@ -37,12 +36,12 @@ export default function SelectPlayersTable({
         );
     const toggleAll = () =>
         setSelection((current) =>
-            current.length === playerList.length
+            current.length === julebrusList.length
                 ? []
-                : playerList.map((item) => item.id)
+                : julebrusList.map((item) => item.id)
         );
 
-    const rows = playerList.map((item) => {
+    const rows = julebrusList.map((item) => {
         const selected = selection.includes(item.id);
         return (
             <tr
@@ -57,18 +56,17 @@ export default function SelectPlayersTable({
                     />
                 </td>
                 <td>
-                    <Group spacing="sm">
-                        <Avatar
-                            size={26}
-                            src={`https://avatars.dicebear.com/api/pixel-art/${item.id}.svg`}
-                            radius={26}
-                        />
-                        <Text size="sm" weight={500}>
-                            {item.name}
-                        </Text>
-                    </Group>
+                    <Text size="sm" weight={500}>
+                        {item.name}
+                    </Text>
                 </td>
-                <td>{item.participatedBefore ? "yes" : "no"}</td>
+                <td>
+                    <ColorSwatch
+                        color={item.color}
+                        size={20}
+                        style={{ marginRight: 10 }}
+                    />
+                </td>
             </tr>
         );
     });
@@ -81,16 +79,18 @@ export default function SelectPlayersTable({
                         <th style={{ width: 40 }}>
                             <Checkbox
                                 onChange={toggleAll}
-                                checked={selection.length === playerList.length}
+                                checked={
+                                    selection.length === julebrusList.length
+                                }
                                 indeterminate={
                                     selection.length > 0 &&
-                                    selection.length !== playerList.length
+                                    selection.length !== julebrusList.length
                                 }
                                 transitionDuration={0}
                             />
                         </th>
-                        <th>User</th>
-                        <th>Participated before</th>
+                        <th>Julebrus</th>
+                        <th>Color</th>
                     </tr>
                 </thead>
                 <tbody>{rows}</tbody>

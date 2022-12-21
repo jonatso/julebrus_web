@@ -1,4 +1,4 @@
-import { Group, Table, Title } from "@mantine/core";
+import { Avatar, Group, Table, Title } from "@mantine/core";
 import { Link, useParams } from "react-router-dom";
 import BackButton from "../Misc/BackButton";
 import { mockEventList, mockPlayersInEvent } from "../Misc/mockData";
@@ -15,7 +15,7 @@ export default function PlayerList() {
 
     return (
         <>
-            <Group>
+            <Group mb={10}>
                 <BackButton />
                 <Title order={3}>Players in {eventName}</Title>
             </Group>
@@ -31,9 +31,16 @@ export default function PlayerList() {
                     {players.map((player) => (
                         <tr>
                             <td>
-                                <Link to={`/play/${eventId}/${player.id}/`}>
-                                    {player.name}
-                                </Link>
+                                <Group spacing="sm">
+                                    <Avatar
+                                        size={26}
+                                        src={`https://avatars.dicebear.com/api/pixel-art/${player.id}.svg`}
+                                        radius={26}
+                                    />
+                                    <Link to={`/play/${eventId}/${player.id}/`}>
+                                        {player.name}
+                                    </Link>
+                                </Group>
                             </td>
                             <td>{player.finished ? "Yes" : "No"}</td>
                         </tr>

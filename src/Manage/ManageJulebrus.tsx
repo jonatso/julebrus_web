@@ -7,7 +7,9 @@ import { mockJulebrusList } from "../Misc/mockData";
 export default function ManageJulebrus() {
     return (
         <>
-            <Title order={3}>Manage julebrus</Title>
+            <Title order={3} mb={10}>
+                Manage julebrus
+            </Title>
             <Table maw={400}>
                 <thead>
                     <tr>
