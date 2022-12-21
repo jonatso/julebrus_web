@@ -100,7 +100,7 @@ export default function Guess() {
                                 </td>
                                 <td>
                                     <NumberInput
-                                        size="xs"
+                                        size="sm"
                                         placeholder="1 - 10"
                                         max={10}
                                         min={1}
